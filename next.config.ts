@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
       {
         source: "/auth/:path*",
         destination: "http://localhost:5000/auth/:path*"
+      },
+      {
+        source: "/user/:path*",
+        destination: "http://localhost:5000/user/:path*"
       }
       
     ];

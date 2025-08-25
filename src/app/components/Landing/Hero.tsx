@@ -3,9 +3,31 @@
 import Navbar from '@/app/components/Common/Navbar';
 import axios from 'axios';
 import swal from 'sweetalert2';
+import { UserContext } from '@/app/context/UserContext';
+import { useContext, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Hero() {
 
+  const { isLoggedIn } = useContext(UserContext);
+  const nav = useRouter();
+  
+  useEffect(() => {
+    if (isLoggedIn) {
+      
+    }
+  }, [isLoggedIn]);
+
+  return (
+    <section className="">
+      <Navbar />
+      <Section1 />
+      <Section2 />
+    </section>
+  );
+}
+
+const Section1 = () => {
   const test = async () => {
     try {
       const response = await axios.get("/server/test", {
@@ -37,22 +59,28 @@ export default function Hero() {
       console.error(error);
     }
   }
-
   return (
-    <section className="bg-gray-100">
-      <Navbar />
-      <div className="container mx-auto text-center">
-        <h1 className="text-4xl font-bold mb-4">Keep Your Files Safe</h1>
-        <p className="text-lg text-gray-600">
-          Store your important files in the cloud and access them from anywhere.
-        </p>
-        <button onClick={test} className="bg-blue-500 text-white px-4 py-2 rounded">
-          Get Started
-        </button>
-        <button onClick={tes} className="bg-blue-500 text-white px-4 py-2 rounded">
-          Get Started Test
-        </button>
-      </div>
-    </section>
+    <div className="container mt-[20%] text-center">
+      <p className="text-lg text-gray-600">
+        Store your important files in the cloud and access them from anywhere.
+      </p>
+      <button onClick={test} className="bg-blue-500 text-white px-4 py-2 rounded">
+        Get Started
+      </button>
+      <button onClick={tes} className="bg-blue-500 text-white ml-20 px-4 py-2 rounded">
+        Get Started Test
+      </button>
+    </div>
   );
-}
+};
+
+const Section2 = () => {
+  return (
+    <div className="container mt-[20%] text-center">
+      <p className="text-lg text-gray-600">
+        Collaborate with your team in real-time and never miss a beat.
+      </p>
+      
+    </div>
+  );
+};
