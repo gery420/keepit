@@ -26,7 +26,7 @@ const SignUp = () => {
         }
     }, [isLoggedIn]);
 
-    const submit = async (event) => {
+    const submit = async () => {
         try {
 
             if (data.password !== data.confirmPassword) {
@@ -76,7 +76,6 @@ const SignUp = () => {
                 return;
             }
 
-            event.preventDefault();
             
             const postData = {
                 username: data.username,

@@ -12,8 +12,7 @@ export default function Navbar() {
   const {isLoggedIn, authToken, setAuthToken, setUser, setLoginStatus} = useContext(UserContext);
   const navigate = useRouter();
 
-  const handleLogout = async (event) => {
-    event.preventDefault();
+  const handleLogout = async () => {
     try{
       const res = await axios.post('/auth/logout/', {
         withCredentials: true,

@@ -25,7 +25,7 @@ const Login = () => {
         }
     }, [isLoggedIn]);
 
-    const submitLogin = async (event) => {
+    const submitLogin = async () => {
         try{
 
             if (data.username === "" || data.password === "") {
@@ -37,7 +37,6 @@ const Login = () => {
                 return;
             } 
                         
-            event.preventDefault();
 
             let postData = {
                 username: data.username,
