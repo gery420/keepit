@@ -5,15 +5,15 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/server/:path*",
-        destination: "http://localhost:5000/server/:path*"
+        destination: "https://keepit-back.vercel.app/server/:path*"
       },
       {
         source: "/auth/:path*",
-        destination: "http://localhost:5000/auth/:path*"
+        destination: "https://keepit-back.vercel.app/auth/:path*"
       },
       {
         source: "/user/:path*",
-        destination: "http://localhost:5000/user/:path*"
+        destination: "https://keepit-back.vercel.app/user/:path*"
       }
       
     ];
